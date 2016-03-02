@@ -1,4 +1,4 @@
-package tv.rdbk.HashTester;
+package tv.rdbk.HashTester.Tests;
 import java.util.List;
 
 public interface HashTest {

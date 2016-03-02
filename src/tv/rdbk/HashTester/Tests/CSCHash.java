@@ -1,12 +1,12 @@
-package tv.rdbk.HashTester;
+package tv.rdbk.HashTester.Tests;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PJWHash implements HashTest{
+public class CSCHash implements HashTest{
 
   @Override
   public String getName() {
-    return "PJW";
+    return "CSC";
   }
 
   @Override
@@ -21,13 +21,15 @@ public class PJWHash implements HashTest{
   @Override
   public Integer getHash(String word, int mod) {
     int hashValue = 0;
+    
     for(int i = 0; i < word.length(); i++) {
       int curr = word.charAt(i);
-      hashValue = (hashValue << 4) + curr;
+      int leftShiftedValue = hashValue << 5;
+      int rightShiftedValue = hashValue >> 27;
       
-      long rotateBits = hashValue & 4026531840l;
-      hashValue ^= rotateBits | (rotateBits >> 24);
+      hashValue = (leftShiftedValue | rightShiftedValue) ^ curr; 
     }
+    
     return Math.abs(hashValue) % mod;
   }
 }

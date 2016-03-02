@@ -1,12 +1,12 @@
-package tv.rdbk.HashTester;
+package tv.rdbk.HashTester.Tests;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PreissHash implements HashTest{
+public class PJWHash implements HashTest{
 
   @Override
   public String getName() {
-    return "Preiss";
+    return "PJW";
   }
 
   @Override
@@ -21,13 +21,13 @@ public class PreissHash implements HashTest{
   @Override
   public Integer getHash(String word, int mod) {
     int hashValue = 0;
-    int preissHashMask = 0 << (128 - 6);
-    
     for(int i = 0; i < word.length(); i++) {
       int curr = word.charAt(i);
-      hashValue = (hashValue & preissHashMask) ^ (hashValue << 6) ^ curr;  
+      hashValue = (hashValue << 4) + curr;
+      
+      long rotateBits = hashValue & 4026531840l;
+      hashValue ^= rotateBits | (rotateBits >> 24);
     }
-    
     return Math.abs(hashValue) % mod;
   }
 }

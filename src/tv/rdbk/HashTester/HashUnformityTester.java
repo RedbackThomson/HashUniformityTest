@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import tv.rdbk.HashTester.Tests.CSCHash;
+import tv.rdbk.HashTester.Tests.HashTest;
+import tv.rdbk.HashTester.Tests.PJWHash;
+import tv.rdbk.HashTester.Tests.PreissHash;
+
 public class HashUnformityTester implements Runnable {
   ArrayList<String> words = new ArrayList<String>();
   
