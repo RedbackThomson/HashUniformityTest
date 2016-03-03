@@ -10,11 +10,13 @@ import tv.rdbk.HashTester.Tests.CSCHash;
 import tv.rdbk.HashTester.Tests.HashTest;
 import tv.rdbk.HashTester.Tests.PJWHash;
 import tv.rdbk.HashTester.Tests.PreissHash;
+import tv.rdbk.HashTester.Tests.UnsignedCSCHash;
 
 public class HashUnformityTester implements Runnable {
   ArrayList<String> words = new ArrayList<String>();
   
-  HashTest[] tests = {new CSCHash(), new PJWHash(), new PreissHash()};
+  HashTest[] tests = {new CSCHash(), new PJWHash(), new PreissHash(), 
+      new UnsignedCSCHash()};
   
   /**
    * Creates a new word hash uniformity tester using a given dictionary
