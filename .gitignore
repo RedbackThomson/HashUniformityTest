@@ -1,4 +1,5 @@
-~$HashAggregate.xlsx
+~$*
+.classpath
+.project
 .settings/
 bin/
-~$*
